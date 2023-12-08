@@ -6,19 +6,33 @@
 
 
 body{
-    background: pink;
+    background: #ffc0cb;
+    display: flex;
+    justify-content: center;
+    margin: 5% auto;
 }
 
-th{
-    width: 25px;
+.nanogram-container{
+    padding: 4%;
+    background: rgb(218, 139, 152);
+    border-radius: 5px;
+    margin: auto;
+}
+
+table{
+    background: #fce9ec;
+    border-radius: 5px;
+    width: 100%;
+    min-width: 400px;
+}
+
+
+th, td{
+    width: 35px;
+    height: 35px;
     border: 1px solid black;
+
 }
 
-tr{
-    height: 25px;
-}
 
-td{
-    border: 1px solid black;
-}
 
