@@ -31,8 +31,13 @@ th, td{
     width: 35px;
     height: 35px;
     border: 1px solid black;
-
 }
 
+.cell{
+    font-size: 25px;
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
 
 
