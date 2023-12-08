@@ -1,4 +1,16 @@
 const tableBody = document.querySelector("tbody");
+const numbersInRows = [
+  "2",
+  "4",
+  "3 2",
+  "6",
+  "7",
+  "2 3",
+  "1 4",
+  "7",
+  "1 1",
+  "1 1",
+];
 
 for (let r = 1; r <= 10; r++) {
   const row = document.createElement("tr");
@@ -10,6 +22,7 @@ for (let r = 1; r <= 10; r++) {
     const cell = document.createElement("td");
     if (c === 1) {
       cell.classList.add("numbers");
+      cell.textContent = numbersInRows[r - 1];
     }
     if (c <= 11 && c > 1) {
       cell.classList.add("cell");
