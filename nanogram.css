@@ -24,13 +24,18 @@ table{
     border-radius: 5px;
     width: 100%;
     min-width: 400px;
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
+    border-collapse:collapse ;
 }
-
 
 th, td{
     width: 35px;
     height: 35px;
     border: 1px solid black;
+}
+th{
+    border: 3px solid black;
 }
 
 .cell{
@@ -40,4 +45,13 @@ th, td{
     text-align: center;
 }
 
+.numbers{
+    border: 3px solid black;
+}
 
+.fifth-row{
+    border-bottom: 3px solid black;
+}
+.fifth-column{
+    border-right: 3px solid black;
+}

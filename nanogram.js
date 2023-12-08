@@ -1,16 +1,25 @@
 const tableBody = document.querySelector("tbody");
 
-for (let i = 1; i <= 10; i++) {
+for (let r = 1; r <= 10; r++) {
   const row = document.createElement("tr");
+  if (r === 5) {
+    row.classList.add("fifth-row");
+  }
 
-  for (let j = 1; j <= 11; j++) {
+  for (let c = 1; c <= 11; c++) {
     const cell = document.createElement("td");
-
-    if (j <= 11 && j > 1) {
+    if (c === 1) {
+      cell.classList.add("numbers");
+    }
+    if (c <= 11 && c > 1) {
       cell.classList.add("cell");
+    }
+    if (c === 6) {
+      cell.classList.add("fifth-column");
     }
     row.appendChild(cell);
   }
+
   tableBody.appendChild(row);
 }
 
