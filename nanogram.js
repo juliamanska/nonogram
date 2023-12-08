@@ -31,8 +31,12 @@ cellsToColor.forEach((cell) => {
 
 cellsToColor.forEach((cell) => {
   cell.addEventListener("contextmenu", (e) => {
-    e.preventDefault();
-    e.target.style.backgroundColor = "#fce9ec";
-    e.target.innerHTML = "X";
+    if (e.target.innerHTML === "X") {
+      e.preventDefault();
+      e.target.innerHTML = "";
+    } else {
+      e.target.style.backgroundColor = "#fce9ec";
+      e.target.innerHTML = "X";
+    }
   });
 });
