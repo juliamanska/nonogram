@@ -57,6 +57,7 @@ cellsToColor.forEach((cell) => {
       e.preventDefault();
       e.target.innerHTML = "";
     } else {
+      e.preventDefault();
       e.target.style.backgroundColor = "#fce9ec";
       e.target.innerHTML = "X";
     }
