@@ -56,6 +56,9 @@ cellsToColor.forEach((cell) => {
     } else {
       e.target.style.backgroundColor = "black";
     }
+    if (areAllWinCellsColored()) {
+      console.log("Wygrałeś!");
+    }
   });
 });
 
@@ -71,3 +74,13 @@ cellsToColor.forEach((cell) => {
     }
   });
 });
+
+const areAllWinCellsColored = () => {
+  for (const cellId of winCells) {
+    const cell = document.getElementById(cellId.toString());
+    if (!cell || cell.style.backgroundColor !== "black") {
+      return false;
+    }
+  }
+  return true;
+};
