@@ -1,4 +1,5 @@
 const tableBody = document.querySelector("tbody");
+const checkButton = document.getElementById("check-btn");
 const numbersInRows = [
   "2",
   "4",
@@ -56,9 +57,6 @@ cellsToColor.forEach((cell) => {
     } else {
       e.target.style.backgroundColor = "black";
     }
-    if (areOnlyWinCellsColored()) {
-      console.log("Wygrałeś!");
-    }
   });
 });
 
@@ -94,3 +92,11 @@ const areOnlyWinCellsColored = () => {
 
   return true;
 };
+
+checkButton.addEventListener("click", () => {
+  if (areOnlyWinCellsColored()) {
+    console.log("You win!");
+  } else {
+    console.log("Keep trying!");
+  }
+});
