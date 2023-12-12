@@ -56,7 +56,7 @@ cellsToColor.forEach((cell) => {
     } else {
       e.target.style.backgroundColor = "black";
     }
-    if (areAllWinCellsColored()) {
+    if (areOnlyWinCellsColored()) {
       console.log("Wygrałeś!");
     }
   });
@@ -75,12 +75,22 @@ cellsToColor.forEach((cell) => {
   });
 });
 
-const areAllWinCellsColored = () => {
-  for (const cellId of winCells) {
-    const cell = document.getElementById(cellId.toString());
-    if (!cell || cell.style.backgroundColor !== "black") {
-      return false;
-    }
+const areOnlyWinCellsColored = () => {
+  const coloredWinCells = winCells.filter((cellId) => {
+    const winCell = document.getElementById(cellId.toString());
+    return winCell && winCell.style.backgroundColor === "black";
+  });
+
+  if (coloredWinCells.length !== winCells.length) {
+    return false;
   }
+
+  const allColoredCells = document.querySelectorAll(
+    '.cell[style*="background-color: black"]'
+  );
+  if (allColoredCells.length > winCells.length) {
+    return false;
+  }
+
   return true;
 };
