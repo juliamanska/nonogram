@@ -20,13 +20,12 @@ body{
 }
 
 table{
-    background: #fce9ec;
     border-radius: 5px;
     width: 100%;
     min-width: 400px;
     border-bottom: 3px solid black;
     border-right: 3px solid black;
-    border-collapse:collapse;
+    border-collapse: collapse;
 }
 
 th, td{
@@ -34,6 +33,8 @@ th, td{
     height: 35px;
     border: 1px solid black;
     font-size: 18px;
+    background: #fce9ec;
+
 }
 th{
     border: 3px solid black;
@@ -63,8 +64,9 @@ th{
 .first-cell{
     border: none;
     width: 70px;
-    padding-right: 20px;
+    background: rgb(218, 139, 152);
 }
+
 #check-btn{
     float: right;
     font-size: 19px;
