@@ -1,5 +1,9 @@
 const tableBody = document.querySelector("tbody");
 const checkButton = document.getElementById("check-btn");
+const result = document.querySelector(".result");
+const winMessage = "You win!";
+const notWinMessage = "Keep trying!";
+
 const numbersInRows = [
   "2",
   "4",
@@ -95,8 +99,8 @@ const areOnlyWinCellsColored = () => {
 
 checkButton.addEventListener("click", () => {
   if (areOnlyWinCellsColored()) {
-    console.log("You win!");
+    result.innerHTML = winMessage;
   } else {
-    console.log("Keep trying!");
+    result.innerHTML = notWinMessage;
   }
 });
