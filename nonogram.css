@@ -67,17 +67,23 @@ th{
     background: rgb(218, 139, 152);
 }
 
-#check-btn{
+.info{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0 0 0;
+}
+
+button{
     font-size: 19px;
     background: linear-gradient(135deg, rgb(209, 91, 112), rgb(166, 40, 61));
-    margin-top: 20px;
     padding: 7px 18px;
     border: none;
     outline: none;
     border-radius: 10px;
+    cursor: pointer;
 }
 
-#check-btn:hover{
+button:hover{
     box-shadow: 0 0 10px rgb(90, 88, 88);
 }
 
@@ -92,11 +98,10 @@ th{
 .timer{
     font-size: 19px;
     background: linear-gradient(135deg, rgb(209, 91, 112), rgb(166, 40, 61));
-    padding: 7px 18px;
-    margin-top: 20px;
-    margin-right: 59%;
     border: none;
+    padding: 7px 18px;
     outline: none;
     border-radius: 10px;
+    margin-right: 160px;
 }
 
