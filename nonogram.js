@@ -1,6 +1,7 @@
 const tableBody = document.querySelector("tbody");
 const checkButton = document.getElementById("check-btn");
 const result = document.querySelector(".result");
+const displayTime = document.querySelector(".timer");
 const winMessage = "You win!";
 const notWinMessage = "Keep trying!";
 
@@ -104,3 +105,21 @@ checkButton.addEventListener("click", () => {
     result.innerHTML = notWinMessage;
   }
 });
+
+const timer = () => {
+  let minutes = 0;
+  let seconds = 0;
+
+  setInterval(() => {
+    if (seconds >= 60) {
+      minutes += 1;
+      seconds = 0;
+    }
+
+    formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+    formattedSeconds = seconds < 10 ? "0" + seconds : seconds;
+
+    seconds += 1;
+    displayTime.innerHTML = `${formattedMinutes}.${formattedSeconds}`;
+  }, 1000);
+};
