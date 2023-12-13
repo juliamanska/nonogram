@@ -2,6 +2,7 @@ const tableBody = document.querySelector("tbody");
 const checkButton = document.getElementById("check-btn");
 const result = document.querySelector(".result");
 const displayTime = document.querySelector(".timer");
+const resetButton = document.getElementById("reset-btn");
 const winMessage = "You win!";
 const notWinMessage = "Keep trying!";
 let firstClick = false;
@@ -138,3 +139,15 @@ const setTime = () => {
   seconds += 1;
   displayTime.innerHTML = `${formattedMinutes}.${formattedSeconds}`;
 };
+
+resetButton.addEventListener("click", () => {
+  clearInterval(interval);
+  minutes = "00";
+  seconds = "00";
+  displayTime.innerHTML = `${minutes}.${seconds}`;
+  cellsToColor.forEach((cell) => {
+    cell.style.backgroundColor = "#fce9ec";
+    cell.innerHTML = "";
+  });
+  result.innerHTML = "";
+});
