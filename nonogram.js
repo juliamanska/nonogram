@@ -56,38 +56,41 @@ for (let r = 1; r <= 10; r++) {
 
 const cellsToColor = document.querySelectorAll(".cell");
 
-cellsToColor.forEach((cell) => {
-  cell.addEventListener("click", (e) => {
-    if (!firstClick) {
-      firstClick = true;
-      interval = setInterval(setTime, 1000);
-    }
+const handleClick = (e) => {
+  if (!firstClick) {
+    firstClick = true;
+    interval = setInterval(setTime, 1000);
+  }
 
-    if (e.button === 0) {
-      if (e.target.style.backgroundColor === "black") {
-        e.target.style.backgroundColor = "#fce9ec";
-      } else if (e.target.innerHTML === "X") {
-        e.target.innerHTML = "";
-        e.target.style.backgroundColor = "black";
-      } else {
-        e.target.style.backgroundColor = "black";
-      }
-    }
-  });
-
-  cell.addEventListener("contextmenu", (e) => {
-    e.preventDefault();
-    if (!firstClick) {
-      firstClick = true;
-      interval = setInterval(setTime, 1000);
-    }
-    if (e.target.innerHTML === "X") {
-      e.target.innerHTML = "";
-    } else {
+  if (e.button === 0) {
+    if (e.target.style.backgroundColor === "black") {
       e.target.style.backgroundColor = "#fce9ec";
-      e.target.innerHTML = "X";
+    } else if (e.target.innerHTML === "X") {
+      e.target.innerHTML = "";
+      e.target.style.backgroundColor = "black";
+    } else {
+      e.target.style.backgroundColor = "black";
     }
-  });
+  }
+};
+
+const handleRightClick = (e) => {
+  e.preventDefault();
+  if (!firstClick) {
+    firstClick = true;
+    interval = setInterval(setTime, 1000);
+  }
+  if (e.target.innerHTML === "X") {
+    e.target.innerHTML = "";
+  } else {
+    e.target.style.backgroundColor = "#fce9ec";
+    e.target.innerHTML = "X";
+  }
+};
+
+cellsToColor.forEach((cell) => {
+  cell.addEventListener("click", handleClick);
+  cell.addEventListener("contextmenu", handleRightClick);
 });
 
 const areOnlyWinCellsColored = () => {
@@ -114,6 +117,10 @@ checkButton.addEventListener("click", () => {
   if (areOnlyWinCellsColored()) {
     result.innerHTML = winMessage;
     clearInterval(interval);
+    cellsToColor.forEach((cell) => {
+      cell.removeEventListener("click", handleClick);
+      cell.removeEventListener("contextmenu", handleRightClick);
+    });
   } else {
     result.innerHTML = notWinMessage;
   }
