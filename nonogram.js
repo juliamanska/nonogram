@@ -63,15 +63,13 @@ const handleClick = (e) => {
     interval = setInterval(setTime, 1000);
   }
 
-  if (e.button === 0) {
-    if (e.target.style.backgroundColor === "black") {
-      e.target.style.backgroundColor = "#fce9ec";
-    } else if (e.target.innerHTML === "X") {
-      e.target.innerHTML = "";
-      e.target.style.backgroundColor = "black";
-    } else {
-      e.target.style.backgroundColor = "black";
-    }
+  if (e.target.style.backgroundColor === "black") {
+    e.target.style.backgroundColor = "#fce9ec";
+  } else if (e.target.innerHTML === "X") {
+    e.target.innerHTML = "";
+    e.target.style.backgroundColor = "black";
+  } else {
+    e.target.style.backgroundColor = "black";
   }
 };
 
@@ -142,9 +140,10 @@ const setTime = () => {
 
 resetButton.addEventListener("click", () => {
   clearInterval(interval);
-  minutes = "00";
-  seconds = "00";
-  displayTime.innerHTML = `${minutes}.${seconds}`;
+  minutes = 0;
+  seconds = 0;
+  firstClick = false;
+  displayTime.innerHTML = "00.00";
   cellsToColor.forEach((cell) => {
     cell.style.backgroundColor = "#fce9ec";
     cell.innerHTML = "";
