@@ -4,6 +4,7 @@ const result = document.querySelector(".result");
 const displayTime = document.querySelector(".timer");
 const winMessage = "You win!";
 const notWinMessage = "Keep trying!";
+let firstClick = false;
 
 const numbersInRows = [
   "2",
@@ -54,24 +55,32 @@ const cellsToColor = document.querySelectorAll(".cell");
 
 cellsToColor.forEach((cell) => {
   cell.addEventListener("click", (e) => {
-    if (e.target.style.backgroundColor === "black") {
-      e.target.style.backgroundColor = "#fce9ec";
-    } else if (e.target.innerHTML === "X") {
-      e.target.innerHTML = "";
-      e.target.style.backgroundColor = "black";
-    } else {
-      e.target.style.backgroundColor = "black";
+    if (!firstClick) {
+      firstClick = true;
+      timer();
+    }
+
+    if (e.button === 0) {
+      if (e.target.style.backgroundColor === "black") {
+        e.target.style.backgroundColor = "#fce9ec";
+      } else if (e.target.innerHTML === "X") {
+        e.target.innerHTML = "";
+        e.target.style.backgroundColor = "black";
+      } else {
+        e.target.style.backgroundColor = "black";
+      }
     }
   });
-});
 
-cellsToColor.forEach((cell) => {
   cell.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+    if (!firstClick) {
+      firstClick = true;
+      timer();
+    }
     if (e.target.innerHTML === "X") {
-      e.preventDefault();
       e.target.innerHTML = "";
     } else {
-      e.preventDefault();
       e.target.style.backgroundColor = "#fce9ec";
       e.target.innerHTML = "X";
     }
