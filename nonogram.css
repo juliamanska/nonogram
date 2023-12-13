@@ -68,17 +68,15 @@ th{
 }
 
 #check-btn{
-    float: right;
     font-size: 19px;
     background: linear-gradient(135deg, rgb(209, 91, 112), rgb(166, 40, 61));
+    margin-top: 20px;
     padding: 7px 18px;
-    margin: 5% 0 2% 0;
     border: none;
     outline: none;
     border-radius: 10px;
-    cursor: pointer;
-    
 }
+
 #check-btn:hover{
     box-shadow: 0 0 10px rgb(90, 88, 88);
 }
@@ -91,3 +89,14 @@ th{
     justify-content: center;
   }
   
+.timer{
+    font-size: 19px;
+    background: linear-gradient(135deg, rgb(209, 91, 112), rgb(166, 40, 61));
+    padding: 7px 18px;
+    margin-top: 20px;
+    margin-right: 59%;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+
