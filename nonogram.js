@@ -5,6 +5,9 @@ const displayTime = document.querySelector(".timer");
 const winMessage = "You win!";
 const notWinMessage = "Keep trying!";
 let firstClick = false;
+let minutes = 0;
+let seconds = 0;
+let interval;
 
 const numbersInRows = [
   "2",
@@ -57,7 +60,7 @@ cellsToColor.forEach((cell) => {
   cell.addEventListener("click", (e) => {
     if (!firstClick) {
       firstClick = true;
-      timer();
+      interval = setInterval(setTime, 1000);
     }
 
     if (e.button === 0) {
@@ -76,7 +79,7 @@ cellsToColor.forEach((cell) => {
     e.preventDefault();
     if (!firstClick) {
       firstClick = true;
-      timer();
+      interval = setInterval(setTime, 1000);
     }
     if (e.target.innerHTML === "X") {
       e.target.innerHTML = "";
@@ -110,25 +113,21 @@ const areOnlyWinCellsColored = () => {
 checkButton.addEventListener("click", () => {
   if (areOnlyWinCellsColored()) {
     result.innerHTML = winMessage;
+    clearInterval(interval);
   } else {
     result.innerHTML = notWinMessage;
   }
 });
 
-const timer = () => {
-  let minutes = 0;
-  let seconds = 0;
+const setTime = () => {
+  if (seconds >= 60) {
+    minutes += 1;
+    seconds = 0;
+  }
 
-  setInterval(() => {
-    if (seconds >= 60) {
-      minutes += 1;
-      seconds = 0;
-    }
+  const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+  const formattedSeconds = seconds < 10 ? "0" + seconds : seconds;
 
-    formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
-    formattedSeconds = seconds < 10 ? "0" + seconds : seconds;
-
-    seconds += 1;
-    displayTime.innerHTML = `${formattedMinutes}.${formattedSeconds}`;
-  }, 1000);
+  seconds += 1;
+  displayTime.innerHTML = `${formattedMinutes}.${formattedSeconds}`;
 };
