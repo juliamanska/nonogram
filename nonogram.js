@@ -1,5 +1,5 @@
 const tableBody = document.querySelector("tbody");
-const checkButton = document.getElementById("check-btn");
+const checkWinButton = document.getElementById("check-btn");
 const result = document.querySelector(".result");
 const displayTime = document.querySelector(".timer");
 const resetButton = document.getElementById("reset-btn");
@@ -112,7 +112,7 @@ const areOnlyWinCellsColored = () => {
   return true;
 };
 
-checkButton.addEventListener("click", () => {
+checkWinButton.addEventListener("click", () => {
   if (areOnlyWinCellsColored()) {
     result.innerHTML = winMessage;
     clearInterval(interval);
@@ -120,6 +120,7 @@ checkButton.addEventListener("click", () => {
       cell.removeEventListener("click", handleClick);
       cell.removeEventListener("contextmenu", handleRightClick);
     });
+    displayTime.classList.add("animation");
   } else {
     result.innerHTML = notWinMessage;
   }
