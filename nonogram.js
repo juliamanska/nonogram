@@ -105,11 +105,19 @@ const areOnlyWinCellsColored = () => {
   const allColoredCells = document.querySelectorAll(
     '.cell[style*="background-color: black"]'
   );
+
   if (allColoredCells.length > winCells.length) {
     return false;
   }
-
   return true;
+};
+
+const removeX = () => {
+  cellsToColor.forEach((cell) => {
+    if ((cell.innerHTML = "x")) {
+      cell.innerHTML = "";
+    }
+  });
 };
 
 checkWinButton.addEventListener("click", () => {
@@ -121,6 +129,7 @@ checkWinButton.addEventListener("click", () => {
       cell.removeEventListener("contextmenu", handleRightClick);
     });
     displayTime.classList.add("animation");
+    removeX();
   } else {
     result.innerHTML = notWinMessage;
   }
