@@ -150,4 +150,5 @@ resetButton.addEventListener("click", () => {
     cell.innerHTML = "";
   });
   result.innerHTML = "";
+  displayTime.classList.remove("animation");
 });
